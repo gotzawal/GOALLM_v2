@@ -31,6 +31,9 @@ GOAP+LLM Ver.2
 Also **move**, **drop_item**, **pick_item**
 
 
+
+## Working Example
+
 (LLM Working Image)
 
 ![image](https://github.com/user-attachments/assets/79f36706-86d8-4be1-89bc-37470943ac72)
