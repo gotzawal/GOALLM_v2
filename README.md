@@ -32,8 +32,10 @@ Also **move**, **drop_item**, **pick_item**
 
 
 (LLM Working Image)
+
 ![image](https://github.com/user-attachments/assets/79f36706-86d8-4be1-89bc-37470943ac72)
 
 
 (GOAP Working Image)
+
 ![image](https://github.com/user-attachments/assets/90bb6956-e526-4e43-9928-aaf1e8fa4ff1)
