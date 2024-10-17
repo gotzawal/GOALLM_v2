@@ -29,3 +29,7 @@ GOAP+LLM Ver.2
   **stand_sofa**: conditions={"location": "sofa","pose": "sit"}, effects={"pose": "stand"}, cost
 
   + move, drop_item, pick_item
+
+
+(Working Image)
+![image](https://github.com/user-attachments/assets/90bb6956-e526-4e43-9928-aaf1e8fa4ff1)
