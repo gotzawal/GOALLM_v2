@@ -1,0 +1,2 @@
+# GOALLM_v2
+GOAP+LLM Ver.2
