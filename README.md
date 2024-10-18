@@ -34,6 +34,7 @@ Also **move**, **drop_item**, **pick_item**
 ## Unity Setting
 ![image](https://github.com/user-attachments/assets/706a5773-d338-4e73-bd1e-211ad411ec87)
 Locomotion Simple Agent, Game Manager, GOAP Example, Interaction Control
+**world_status and goap_status is not implemented yet.**
 
 ## Working Example
 
