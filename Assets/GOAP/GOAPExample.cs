@@ -321,6 +321,8 @@ public class GOAPExample : MonoBehaviour
             Goal gestureGoal = GoalParser.ParseSentenceToGoal($"Do {gesture}", actions, weight: 1f);
             if (gestureGoal != null)
                 parsedGoals.Add(gestureGoal);
+            
+            Debug.Log("Gesture Goal Set.");
         }
 
         // 2. MoveGoal 유효성 검사
@@ -336,6 +338,8 @@ public class GOAPExample : MonoBehaviour
             Goal moveGoalObj = GoalParser.ParseSentenceToGoal($"Go to {moveGoal}", actions, weight: 1f);
             if (moveGoalObj != null)
                 parsedGoals.Add(moveGoalObj);
+
+            Debug.Log("Move Goal Set.");
         }
 
         // 3. ItemGoal 유효성 검사
@@ -421,6 +425,7 @@ public class GOAPExample : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("Item Goal Set.");
         }
 
         if (parsedGoals.Count == 0)
