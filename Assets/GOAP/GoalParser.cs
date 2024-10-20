@@ -80,42 +80,29 @@ public static class GoalParser
         var matchPickUpAt = Regex.Match(sentence, @"Pick\s+up\s+(.+?)\s+at\s+(.+)", RegexOptions.IgnoreCase);
         if (matchPickUpAt.Success)
         {
-            string itemName = matchPickUpAt.Groups[1].Value.Trim().ToLower();
-            string placeName = matchPickUpAt.Groups[2].Value.Trim().ToLower();
+            string itemName = matchPickUpAt.Groups[1].Value.Trim();
+            string placeName = matchPickUpAt.Groups[2].Value.Trim();
             string goalName = $"Pick_up_{itemName}_at_{placeName}";
 
             Func<NPCState, WorldState, bool> condition = (npcState, worldState) =>
             {
-                // NPC가 지정된 장소에 있는지 확인
-                if (!npcState.LowerBody.ContainsKey("location") || npcState.LowerBody["location"].ToString().ToLower() != placeName)
-                    return false;
-
-                // 지정된 장소에 아이템이 있는지 확인
-                if (!worldState.Places.ContainsKey(placeName) || !worldState.Places[placeName].Inventory.Contains(itemName))
-                    return false;
-
-                // NPC가 이미 아이템을 보유하고 있지 않은지 확인
-                return !npcState.Inventory.Contains(itemName);
+                // Goal is achieved when NPC has the item
+                return npcState.Inventory.Contains(itemName);
             };
 
             return new Goal(goalName, condition, weight);
         }
-
-        // 2. "Pick up <item>" 패턴 검사
+        
+        // "Pick up <item>"
         var matchPickUp = Regex.Match(sentence, @"Pick\s+up\s+(.+)", RegexOptions.IgnoreCase);
         if (matchPickUp.Success)
         {
-            string itemName = matchPickUp.Groups[1].Value.Trim().ToLower();
+            string itemName = matchPickUp.Groups[1].Value.Trim();
             string goalName = $"Pick_up_{itemName}";
 
             Func<NPCState, WorldState, bool> condition = (npcState, worldState) =>
             {
-                // NPC가 이미 아이템을 보유하고 있지 않은지 확인
-                if (npcState.Inventory.Contains(itemName))
-                    return false;
-
-                // 모든 장소에서 아이템이 존재하는지 확인
-                return worldState.Places.Values.Any(place => place.Inventory.Contains(itemName));
+                return npcState.Inventory.Contains(itemName);
             };
 
             return new Goal(goalName, condition, weight);
